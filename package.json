@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "start": ".\\node_modules\\.bin\\cypress open",
+    "start_linux_test": "./node_modules/.bin/cypress open --config baseUrl=https://arcmedia:arcmedia123@knuess-b2b.arcmedia.ch/alle-produkte.html",
+    "start_linux_prod": "./node_modules/.bin/cypress open --config baseUrl=https://arcmedia:arcmedia123@kneuss.com/",
+    "test": ".\\node_modules\\.bin\\cypress run",
+    "test_linux_test": "./node_modules/.bin/cypress run --config baseUrl=https://arcmedia:arcmedia123@test.kneuss.com/",
+    "test_linux_prod": "./node_modules/.bin/cypress run --config baseUrl=https://arcmedia:arcmedia123@kneuss.com/"
+  },
+  "devDependencies": {
+    "cypress": "^13.6.0"
+  }
+}
