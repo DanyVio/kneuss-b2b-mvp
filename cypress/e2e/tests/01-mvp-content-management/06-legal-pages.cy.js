@@ -1,8 +1,8 @@
 let config = Cypress.config();
 
-describe('Content page', function () {
+describe('Legal Pages', function () {
 
-  it('components home page', function () {
+  it('legal pages', function () {
     cy.visit(`${config.baseUrl}`);
     cy.scrollTo('bottom');
     cy.get('.copyright > :nth-child(2)')

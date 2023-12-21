@@ -1,8 +1,8 @@
 let config = Cypress.config();
 
-describe('Content page', function () {
+describe('404 Page', function () {
 
-  it('components home page', function () {
+  it('404 page', function () {
     cy.visit(`${config.baseUrl}/cuatrocientoscuatro`, { failOnStatusCode: false });
     // cy.visit(`${config.baseUrl}/cuatrocientoscuatro`);
   });
