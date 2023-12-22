@@ -32,13 +32,16 @@ describe('Shop Registration', function () {
     cy.get('#customer-menu > .hidden')
       .should('be.visible')
       .click();
-    cy.get('.block.px-4.py-2.lg:px-5.lg:py-2.hover:bg-gray-100')
+    cy.get('.absolute > [href="https://knuess-b2b.arcmedia.ch/customer/account/index/"]')
       .should('be.visible')
       .click();
     cy.get('#email')
       .type('test@test.com');
     cy.get('#pass')
       .type('Test1234');
+    cy.get('.fieldset > .actions-toolbar > .btn > span')
+      .should('be.visible')
+      .click();
     cy.get('.items > :nth-child(2) > a')
       .should('be.visible')
       .click();
@@ -61,6 +64,9 @@ describe('Shop Registration', function () {
       .should('be.visible')
       .click();
     cy.get(':nth-child(9) > a')
+      .should('be.visible')
+      .click();
+    cy.get(':nth-child(11) > a')
       .should('be.visible')
       .click();
   });
