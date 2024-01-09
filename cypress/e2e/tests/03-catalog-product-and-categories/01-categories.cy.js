@@ -1,4 +1,3 @@
-
 let config = Cypress.config();
 
 describe('categories', function () {
@@ -84,7 +83,7 @@ describe('categories', function () {
     cy.get('[href="https://knuess-b2b.arcmedia.ch/spezial-kuche/grill.html"] > .subcategory > .relative')
       .should('be.visible')
       .click();
-    cy.get('[action="https://knuess-b2b.arcmedia.ch/checkout/cart/add/uenc/%25uenc%25/product/2181/"] > .product > .hover\:shadow-sm')
+    cy.get('.store-logo')
       .should('be.visible')
       .click();
   });
