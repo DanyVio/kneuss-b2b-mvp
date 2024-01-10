@@ -24,11 +24,11 @@ describe('categories', function () {
     cy.get('[action="https://knuess-b2b.arcmedia.ch/checkout/cart/add/uenc/%25uenc%25/product/2232/"]')
       .should('be.visible')
       .click();
-    cy.get('#qty\[2232\]')
-      .click()
-      .click()
-      .click()
-      .click()
+    cy.get('#add-to-wishlist')
+      .should('be.visible')
+      .click();
+    cy.get('.secondary > .action > span')
+      .should('be.visible')
       .click();
   });
 });
