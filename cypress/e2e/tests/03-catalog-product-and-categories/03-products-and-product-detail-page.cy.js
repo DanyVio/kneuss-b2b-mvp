@@ -30,5 +30,8 @@ describe('categories', function () {
     cy.get('.secondary > .action > span')
       .should('be.visible')
       .click();
+    cy.get(':nth-child(11) > a')
+      .should('be.visible')
+      .click();
   });
 });
