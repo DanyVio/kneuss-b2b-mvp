@@ -1,8 +1,8 @@
 let config = Cypress.config();
 
-describe('Shop Registration', function () {
+describe('Newsletter subscription', function () {
 
-  it('Create a customer', function () {
+  it('Newsletter subscription', function () {
     cy.visit(`${config.baseUrl}`);
     
     cy.get('#customer-menu > .hidden')

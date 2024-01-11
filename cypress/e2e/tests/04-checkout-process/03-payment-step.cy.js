@@ -4,9 +4,9 @@ Cypress.on('uncaught:exception', (err, runnable) => {
   return false
 });
 
-describe('Shoppinh Cart', function () {
+describe('Payment method', function () {
 
-  it('shopping cart', function () {
+  it('payment method', function () {
     cy.visit(`${config.baseUrl}`);
     
     cy.get('#customer-menu > .hidden')

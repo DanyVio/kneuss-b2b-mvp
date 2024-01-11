@@ -1,6 +1,6 @@
 let config = Cypress.config();
 
-describe('Shop Registration', function () {
+describe('Customer login', function () {
 
   it('Create a customer', function () {
     cy.visit(`${config.baseUrl}`);

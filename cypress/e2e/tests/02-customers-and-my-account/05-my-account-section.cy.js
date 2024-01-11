@@ -1,9 +1,9 @@
 
 let config = Cypress.config();
 
-describe('Shop Registration', function () {
+describe('My Account', function () {
 
-  it('Create a customer', function () {
+  it('my account', function () {
     cy.visit(`${config.baseUrl}`);
     
     cy.get('#customer-menu > .hidden')

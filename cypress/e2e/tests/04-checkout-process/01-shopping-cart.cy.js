@@ -4,7 +4,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
   return false
 });
 
-describe('Shoppinh Cart', function () {
+describe('Shopping Cart', function () {
 
   it('shopping cart', function () {
     cy.visit(`${config.baseUrl}`);

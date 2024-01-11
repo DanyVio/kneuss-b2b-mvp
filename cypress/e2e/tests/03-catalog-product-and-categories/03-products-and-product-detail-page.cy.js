@@ -1,8 +1,8 @@
 let config = Cypress.config();
 
-describe('categories', function () {
+describe('Product Detail page', function () {
 
-  it('categories', function () {
+  it('product detail page', function () {
     cy.visit(`${config.baseUrl}`);
 
     cy.get('#customer-menu > .hidden')

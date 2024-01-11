@@ -1,8 +1,8 @@
 let config = Cypress.config();
 
-describe('categories', function () {
+describe('Doofinder', function () {
 
-  it('categories', function () {
+  it('doofinder', function () {
     cy.visit(`${config.baseUrl}`);
 
     cy.get('#customer-menu > .hidden')
