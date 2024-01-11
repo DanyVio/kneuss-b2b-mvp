@@ -22,6 +22,12 @@ describe('Payment method', function () {
     cy.get('.fieldset > .actions-toolbar > .btn > span')
       .should('be.visible')
       .click();
+    cy.get('.level-0 > [href="https://knuess-b2b.arcmedia.ch/alle-produkte.html"]')
+      .should('be.visible')
+      .click();
+    cy.get('[action="https://knuess-b2b.arcmedia.ch/checkout/cart/add/uenc/%25uenc%25/product/2232/"] > .product-info > .actions > .add-to-cart-btn')
+      .should('be.visible')
+      .click();
     cy.get('.cart-icon > .hidden')
       .should('be.visible')
       .click();
@@ -46,6 +52,12 @@ describe('Payment method', function () {
       .should('be.visible')
       .click();
     cy.scrollTo('bottom');
+    cy.get('#shipping-method-freeshipping')
+      .should('be.visible')
+      .click();
+    cy.get('#payment-method-checkmo')
+      .should('be.visible')
+      .click();
     cy.get('.nav-main > .flex > .btn')
       .should('be.visible')
       .click();

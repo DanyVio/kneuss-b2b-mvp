@@ -5,7 +5,6 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 });
 
 describe('Shopping Cart', function () {
-
   it('shopping cart', function () {
     cy.visit(`${config.baseUrl}`);
     
@@ -20,6 +19,12 @@ describe('Shopping Cart', function () {
     cy.get('#pass')
       .type('Test1234');
     cy.get('.fieldset > .actions-toolbar > .btn > span')
+      .should('be.visible')
+      .click();
+    cy.get('.level-0 > [href="https://knuess-b2b.arcmedia.ch/alle-produkte.html"]')
+      .should('be.visible')
+      .click();
+    cy.get('[action="https://knuess-b2b.arcmedia.ch/checkout/cart/add/uenc/%25uenc%25/product/2232/"] > .product-info > .actions > .add-to-cart-btn')
       .should('be.visible')
       .click();
     cy.get('.cart-icon > .hidden')
