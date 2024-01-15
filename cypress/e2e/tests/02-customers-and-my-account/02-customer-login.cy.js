@@ -2,7 +2,7 @@ let config = Cypress.config();
 
 describe('Customer login', function () {
 
-  it('login with an fake user', function () {
+  it('login with a fake user', function () {
     cy.visit(`${config.baseUrl}`);
     
     cy.get('#customer-menu > .hidden')
@@ -18,6 +18,7 @@ describe('Customer login', function () {
     cy.get('.fieldset > .actions-toolbar > .btn > span')
       .should('be.visible')
       .click();
+    cy.get("success-message").should("not.exist");
   });
 
   it('Create a customer', function () {
