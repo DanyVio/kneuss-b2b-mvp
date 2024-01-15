@@ -2,6 +2,24 @@ let config = Cypress.config();
 
 describe('Customer login', function () {
 
+  it('login with an fake user', function () {
+    cy.visit(`${config.baseUrl}`);
+    
+    cy.get('#customer-menu > .hidden')
+      .should('be.visible')
+      .click();
+    cy.get('.absolute > [href="https://knuess-b2b.arcmedia.ch/customer/account/index/"]')
+      .should('be.visible')
+      .click();
+    cy.get('#email')
+      .type('erwtw@testtest.com')
+    cy.get('#pass')
+      .type('test1234')
+    cy.get('.fieldset > .actions-toolbar > .btn > span')
+      .should('be.visible')
+      .click();
+  });
+
   it('Create a customer', function () {
     cy.visit(`${config.baseUrl}`);
     
