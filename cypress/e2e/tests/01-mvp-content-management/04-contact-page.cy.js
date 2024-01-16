@@ -14,6 +14,7 @@ describe('Contact page', function () {
       .click();
     cy.wait(3000);
   });
+  
   it('contact page', function () {
     cy.visit(`${config.baseUrl}/contact`);
     cy.get('#name')
