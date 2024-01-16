@@ -6,12 +6,36 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 
 describe('Check the Header', function () {
 
-  it('preheader', function () {
+  beforeEach('before each test', function () {
     cy.visit(`${config.baseUrl}`);
-    cy.get('.hidden > :nth-child(1) > .text-secondary')
+    cy.get('.ambar-btn-accept')
       .should('be.visible')
       .click();
-    cy.get('.hidden > :nth-child(2) > .text-secondary')
+    cy.wait(3000);
+  });
+
+  it('header', function () {
+    cy.visit(`${config.baseUrl}`);
+
+    cy.get('.level-0 > [href="https://test-b2b-kneuss.arcmedia.ch/produkte.html"]')
+      .should('be.visible')
+      .click();
+    cy.get('.level-0 > [href="https://test-b2b-kneuss.arcmedia.ch/guggeli.html"]')
+      .should('be.visible')
+      .click();
+    cy.get('.level-0 > [href="https://test-b2b-kneuss.arcmedia.ch/schnitzel.html"]')
+      .should('be.visible')
+      .click();
+    cy.get('.level-0 > [href="https://test-b2b-kneuss.arcmedia.ch/schenkel.html"]')
+      .should('be.visible')
+      .click();
+    cy.get('.level-0 > [href="https://test-b2b-kneuss.arcmedia.ch/flugeli.html"]')
+      .should('be.visible')
+      .click();
+    cy.get('.level-0 > [href="https://test-b2b-kneuss.arcmedia.ch/poulet.html"]')
+      .should('be.visible')
+      .click();
+    cy.get('.level-0 > [href="https://test-b2b-kneuss.arcmedia.ch/spezial-kuchen.html"]')
       .should('be.visible')
       .click();
     cy.get('.store-logo')
@@ -19,15 +43,28 @@ describe('Check the Header', function () {
       .click();
     cy.get('#search-content-desktop > .search-form > #search_mini_form > #search')
       .type('poulet');
-    cy.get('.flex-col > .flex')
-      .click({force: true});
-    cy.get('#customer-menu > .hidden')
+    cy.get('.dfd-close-button')
+      .should('be.visible')
+      .click();
+    cy.get('.dfd-logo')
+      .should('be.visible')
+      .click();
+    cy.get('#customer-menu')
+      .should('be.visible')
+      .click();
+    cy.get('.store-logo')
       .should('be.visible')
       .click();
     cy.get('.list-icon > .hidden')
       .should('be.visible')
       .click();
+    cy.get('.store-logo')
+      .should('be.visible')
+      .click();
     cy.get('.cart-icon > .hidden')
+      .should('be.visible')
+      .click();
+    cy.get('.store-logo')
       .should('be.visible')
       .click();
   });
