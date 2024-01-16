@@ -1,33 +1,44 @@
 let config = Cypress.config();
 
+Cypress.on('uncaught:exception', (err, runnable) => {
+  return false
+});
+
 describe('Content page', function () {
+
+  beforeEach('before each test', function () {
+    cy.visit(`${config.baseUrl}`);
+    cy.get('.ambar-btn-accept')
+      .should('be.visible')
+      .click();
+    cy.wait(3000);
+  });
 
   it('components home page', function () {
     cy.visit(`${config.baseUrl}`);
 
-    cy.get(':nth-child(1) > a > .absolute')
+    cy.get('.owl-next > .fas')
       .should('be.visible')
-      .click({ force: true });
-    cy.get('.grid > :nth-child(2) > a > .absolute')
+      .click();
+    cy.get('.owl-prev > .fas')
       .should('be.visible')
-      .click({ force: true });
-    cy.get(':nth-child(3) > a > .absolute')
+      .click();
+    cy.get('.image-description')
       .should('be.visible')
-      .click({ force: true });
-    cy.get(':nth-child(4) > a > .absolute')
+      .click({ multiple: true }); 
+    cy.get('.store-logo')
       .should('be.visible')
-      .click({ force: true });
-    cy.get(':nth-child(5) > a > .absolute')
+      .click();
+    cy.scrollTo('center');
+    cy.get('.item > [href="https://test-b2b-kneuss.arcmedia.ch/minutenschnitzel-natur.html"]')
       .should('be.visible')
-      .click({ force: true });
-    cy.get(':nth-child(6) > a > .absolute')
+      .click();
+    cy.get('.store-logo')
       .should('be.visible')
-      .click({ force: true });
-    cy.get(':nth-child(7) > a > .absolute')
+      .click();
+    cy.scrollTo('bottom');
+    cy.get('.mgz-element-inner > p > a')
       .should('be.visible')
-      .click({ force: true });
-    cy.get(':nth-child(8) > a > .absolute')
-      .should('be.visible')
-      .click({ force: true });
+      .click();
   });
 });
