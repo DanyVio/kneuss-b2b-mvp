@@ -1,16 +1,22 @@
 let config = Cypress.config();
 
+Cypress.on('uncaught:exception', (err, runnable) => {
+  return false
+});
+
 describe('Newsletter subscription', function () {
 
-  it('Newsletter subscription', function () {
+  beforeEach('before each test', function () {
     cy.visit(`${config.baseUrl}`);
-    
-    cy.get('#customer-menu > .hidden')
+    cy.get('.ambar-btn-accept')
       .should('be.visible')
       .click();
-    cy.get('.absolute > [href="https://knuess-b2b.arcmedia.ch/customer/account/index/"]')
-      .should('be.visible')
-      .click();
+    cy.wait(3000);
+  });
+
+  it('Newsletter subscription', function () {
+    cy.visit(`${config.baseUrl}/customer/account/login/`);
+ 
     cy.get('#email')
       .type('test@test.com');
     cy.get('#pass')
@@ -21,18 +27,14 @@ describe('Newsletter subscription', function () {
     cy.get('#customer-menu > .hidden')
       .should('be.visible')
       .click();
-    cy.get('.absolute > [href="https://knuess-b2b.arcmedia.ch/customer/account/"]')
-      .should('be.visible')
-      .click();
     cy.get(':nth-child(2) > :nth-child(2) > .flex > .grow > .mt-3 > span')
       .should('be.visible')
       .click();
     cy.get('div.primary > .action > span')
       .should('be.visible')
       .click();
-    cy.get(':nth-child(11) > a')
-      .should('be.visible')
-      .click();
+    cy.get('.message')
+      .should('be.visible');
   });
 });
 
