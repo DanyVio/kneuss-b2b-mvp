@@ -15,15 +15,10 @@ describe('shop registration', function () {
   });
 
   it('Create a customer', function () {
-    cy.visit(`${config.baseUrl}`);
-    cy.get('#customer-menu > .hidden')
-      .should('be.visible')
-      .click();
-    cy.get('.absolute > [href="https://knuess-b2b.arcmedia.ch/customer/account/create/"]')
-      .should('be.visible')
-      .click();
+    cy.visit(`${config.baseUrl}/customer/account/create/`);
+    
     cy.get('#firstname')
-      .type('test');
+      .type('testtest');
     cy.get('#lastname')
       .type('testdany');
     cy.get('#is_subscribed')
@@ -33,7 +28,7 @@ describe('shop registration', function () {
       .should('be.visible')
       .click();
     cy.get('#email_address')
-      .type('test@test.com');
+      .type('testdany@test.com');
     cy.get('#password')
       .type('Test1234');
     cy.get('#password-confirmation')
@@ -41,17 +36,18 @@ describe('shop registration', function () {
     cy.get('div.primary > .action > span')
       .should('be.visible')
       .click();
-    cy.get('#customer-menu > .hidden')
-      .should('be.visible')
-      .click();
-    cy.get('.absolute > [href="https://knuess-b2b.arcmedia.ch/customer/account/index/"]')
-      .should('be.visible')
-      .click();
+    cy.visit(`${config.baseUrl}/customer/account/login/`);
     cy.get('#email')
       .type('test@test.com');
     cy.get('#pass')
       .type('Test1234');
     cy.get('.fieldset > .actions-toolbar > .btn > span')
+      .should('be.visible')
+      .click();
+    cy.get('#customer-menu > .hidden')
+      .should('be.visible')
+      .click();
+    cy.get('#customer-menu > .hidden')
       .should('be.visible')
       .click();
     cy.get('.items > :nth-child(2) > a')
@@ -78,7 +74,10 @@ describe('shop registration', function () {
     cy.get(':nth-child(9) > a')
       .should('be.visible')
       .click();
-    cy.get(':nth-child(11) > a')
+    cy.get('.current > strong')
+      .should('be.visible')
+      .click();
+    cy.get(':nth-child(12) > a')
       .should('be.visible')
       .click();
   });
