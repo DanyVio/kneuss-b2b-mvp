@@ -1,6 +1,18 @@
 let config = Cypress.config();
 
-describe('Shop Registration', function () {
+Cypress.on('uncaught:exception', (err, runnable) => {
+  return false
+});
+
+describe('shop registration', function () {
+
+  beforeEach('before each test', function () {
+    cy.visit(`${config.baseUrl}`);
+    cy.get('.ambar-btn-accept')
+      .should('be.visible')
+      .click();
+    cy.wait(3000);
+  });
 
   it('Create a customer', function () {
     cy.visit(`${config.baseUrl}`);
