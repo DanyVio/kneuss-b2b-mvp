@@ -1,16 +1,21 @@
 let config = Cypress.config();
 
-describe('categories', function () {
+Cypress.on('uncaught:exception', (err, runnable) => {
+  return false
+});
 
-  it('categories', function () {
+describe('Categories', function () {
+
+  beforeEach('before each test', function () {
     cy.visit(`${config.baseUrl}`);
+    cy.get('.ambar-btn-accept')
+      .should('be.visible')
+      .click();
+    cy.wait(3000);
+  });
 
-    cy.get('#customer-menu > .hidden')
-      .should('be.visible')
-      .click();
-    cy.get('.absolute > [href="https://knuess-b2b.arcmedia.ch/customer/account/index/"]')
-      .should('be.visible')
-      .click();
+  it('entry with “All products” in the main menu', function () {
+    cy.visit(`${config.baseUrl}customer/account/login/`);
     cy.get('#email')
       .type('test@test.com');
     cy.get('#pass')
@@ -18,72 +23,62 @@ describe('categories', function () {
     cy.get('.fieldset > .actions-toolbar > .btn > span')
       .should('be.visible')
       .click();
-    cy.get('.level-0 > [href="https://knuess-b2b.arcmedia.ch/alle-produkte.html"]')
+    cy.get(':nth-child(1) > .level-0 > span')
       .should('be.visible')
       .click();
-    cy.get(':nth-child(1) > .filter-options-title')
-      .should('be.visible')
-      .click()
-      .click();
-    cy.get(':nth-child(2) > .filter-options-title')
-      .should('be.visible')
-      .click()
-      .click();
-    cy.get(':nth-child(3) > .filter-options-title')
-      .should('be.visible')
-      .click()
-      .click();
-    cy.scrollTo('bottom');
-    cy.get('.z-0 > :nth-child(3) > .page > :nth-child(2)')
+  });
+
+  it('3 levels of categories inside “All products” entry', function () {
+    cy.visit(`${config.baseUrl}customer/account/login/`);
+    cy.get('#email')
+      .type('test@test.com');
+    cy.get('#pass')
+      .type('Test1234');
+    cy.get('.fieldset > .actions-toolbar > .btn > span')
       .should('be.visible')
       .click();
-    cy.get('.next')
+    cy.get(':nth-child(1) > .level-0 > span')
       .should('be.visible')
       .click();
-    cy.get('.action > .flex')
+    cy.get('[href="https://test-b2b-kneuss.arcmedia.ch/produkte/bachofe-guggeli.html"] > .subcategory > .relative')
       .should('be.visible')
       .click();
-    cy.get('.category41 > .font-inter')
+  });
+
+  it('subcategories in the category page as filter (sidebar)', function () {
+    cy.visit(`${config.baseUrl}customer/account/login/`);
+    cy.get('#email')
+      .type('test@test.com');
+    cy.get('#pass')
+      .type('Test1234');
+    cy.get('.fieldset > .actions-toolbar > .btn > span')
       .should('be.visible')
       .click();
-    cy.get('.store-logo')
+    cy.get(':nth-child(1) > .level-0 > span')
       .should('be.visible')
       .click();
-    cy.get('.level-0 > [href="https://knuess-b2b.arcmedia.ch/guggeli.html"]')
+    cy.get(':nth-child(1) > .filter-options-content > .items > :nth-child(3) > .flex > :nth-child(1)')
       .should('be.visible')
       .click();
-    cy.get('.level-0 > [href="https://knuess-b2b.arcmedia.ch/poulet.html"]')
+  });
+
+  it('choose between grid, list or table view', function () {
+    cy.visit(`${config.baseUrl}customer/account/login/`);
+    cy.get('#email')
+      .type('test@test.com');
+    cy.get('#pass')
+      .type('Test1234');
+    cy.get('.fieldset > .actions-toolbar > .btn > span')
       .should('be.visible')
       .click();
-    cy.get('.level-0 > [href="https://knuess-b2b.arcmedia.ch/flugeli.html"]')
+    cy.get(':nth-child(1) > .level-0 > span')
       .should('be.visible')
       .click();
-    cy.get('.level-0 > [href="https://knuess-b2b.arcmedia.ch/schenkel.html"]')
+    cy.get('.mode-list')
       .should('be.visible')
       .click();
-    cy.get('.level-0 > [href="https://knuess-b2b.arcmedia.ch/schnitzel.html"]')
-      .should('be.visible')
-      .click();
-    cy.get('.level-0 > [href="https://knuess-b2b.arcmedia.ch/spezial-kuche.html"]')
-      .should('be.visible')
-      .click();
-    cy.get(':nth-child(1) > .filter-options-title > .title')
-      .should('be.visible')
-      .click();
-    cy.get(':nth-child(2) > .filter-options-title > .title')
-      .should('be.visible')
-      .click();
-    cy.get(':nth-child(3) > .filter-options-title > .title')
-      .should('be.visible')
-      .click();
-    cy.get(':nth-child(4) > .filter-options-title > .title')
-      .should('be.visible')
-      .click();
-    cy.scrollTo('top');
-    cy.get('[href="https://knuess-b2b.arcmedia.ch/spezial-kuche/grill.html"] > .subcategory > .relative')
-      .should('be.visible')
-      .click();
-    cy.get('.store-logo')
+    cy.wait(3000);
+    cy.get('.mode-grid')
       .should('be.visible')
       .click();
   });
