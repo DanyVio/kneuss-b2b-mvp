@@ -8,6 +8,6 @@
     "test_linux_prod": "./node_modules/.bin/cypress run --config baseUrl=https://arcmedia:arcmedia123@kneuss.com/"
   },
   "devDependencies": {
-    "cypress": "^13.6.2"
+    "cypress": "^13.6.3"
   }
 }
