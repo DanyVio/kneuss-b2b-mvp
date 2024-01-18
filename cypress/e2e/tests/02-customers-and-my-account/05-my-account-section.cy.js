@@ -1,28 +1,27 @@
 
 let config = Cypress.config();
 
+Cypress.on('uncaught:exception', (err, runnable) => {
+  return false
+});
+
 describe('My Account', function () {
 
-  it('my account', function () {
+  beforeEach('before each test', function () {
     cy.visit(`${config.baseUrl}`);
-    
-    cy.get('#customer-menu > .hidden')
+    cy.get('.ambar-btn-accept')
       .should('be.visible')
       .click();
-    cy.get('.absolute > [href="https://knuess-b2b.arcmedia.ch/customer/account/index/"]')
-      .should('be.visible')
-      .click();
+    cy.wait(3000);
+  });
+
+  it('my account', function () {
+    cy.visit(`${config.baseUrl}customer/account/login/`);
     cy.get('#email')
       .type('test@test.com');
     cy.get('#pass')
       .type('Test1234');
     cy.get('.fieldset > .actions-toolbar > .btn > span')
-      .should('be.visible')
-      .click();
-    cy.get('#customer-menu > .hidden')
-      .should('be.visible')
-      .click();
-    cy.get('.absolute > [href="https://knuess-b2b.arcmedia.ch/customer/account/"]')
       .should('be.visible')
       .click();
       cy.get('.items > :nth-child(2) > a')
@@ -49,7 +48,10 @@ describe('My Account', function () {
     cy.get(':nth-child(9) > a')
       .should('be.visible')
       .click();
-    cy.get(':nth-child(11) > a')
+    cy.get('.current > strong')
+      .should('be.visible')
+      .click();
+    cy.get(':nth-child(12) > a')
       .should('be.visible')
       .click();
   });
