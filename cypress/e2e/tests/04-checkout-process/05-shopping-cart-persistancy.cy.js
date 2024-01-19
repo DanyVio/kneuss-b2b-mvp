@@ -6,15 +6,16 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 
 describe('Shopping cart persistancy', function () {
 
-  it('shopping cart persistancy', function () {
+  beforeEach('before each test', function () {
     cy.visit(`${config.baseUrl}`);
-    
-    cy.get('#customer-menu > .hidden')
+    cy.get('.ambar-btn-accept')
       .should('be.visible')
       .click();
-    cy.get('.absolute > [href="https://knuess-b2b.arcmedia.ch/customer/account/index/"]')
-      .should('be.visible')
-      .click();
+    cy.wait(3000);
+  });
+
+  it('shopping cart persistancy', function () {
+    cy.visit(`${config.baseUrl}customer/account/login/`);
     cy.get('#email')
       .type('test@test.com');
     cy.get('#pass')
@@ -22,10 +23,10 @@ describe('Shopping cart persistancy', function () {
     cy.get('.fieldset > .actions-toolbar > .btn > span')
       .should('be.visible')
       .click();
-    cy.get('.level-0 > [href="https://knuess-b2b.arcmedia.ch/alle-produkte.html"]')
+    cy.get(':nth-child(1) > .level-0 > span')
       .should('be.visible')
       .click();
-    cy.get('[action="https://knuess-b2b.arcmedia.ch/checkout/cart/add/uenc/%25uenc%25/product/2232/"] > .product-info > .actions > .add-to-cart-btn')
+    cy.get(':nth-child(2) > .item > .product-info > .btn-container > .btn')
       .should('be.visible')
       .click();
     cy.get('.cart-icon > .hidden')
@@ -37,14 +38,7 @@ describe('Shopping cart persistancy', function () {
   });
 
   it('checking the cart', function () {
-    cy.visit(`${config.baseUrl}`);
-    
-    cy.get('#customer-menu > .hidden')
-      .should('be.visible')
-      .click();
-    cy.get('.absolute > [href="https://knuess-b2b.arcmedia.ch/customer/account/index/"]')
-      .should('be.visible')
-      .click();
+    cy.visit(`${config.baseUrl}customer/account/login/`);
     cy.get('#email')
       .type('test@test.com');
     cy.get('#pass')
@@ -52,10 +46,10 @@ describe('Shopping cart persistancy', function () {
     cy.get('.fieldset > .actions-toolbar > .btn > span')
       .should('be.visible')
       .click();
-    cy.get('.level-0 > [href="https://knuess-b2b.arcmedia.ch/alle-produkte.html"]')
+    cy.get(':nth-child(1) > .level-0 > span')
       .should('be.visible')
       .click();
-    cy.get('[action="https://knuess-b2b.arcmedia.ch/checkout/cart/add/uenc/%25uenc%25/product/2232/"] > .product-info > .actions > .add-to-cart-btn')
+    cy.get(':nth-child(2) > .item > .product-info > .btn-container > .btn')
       .should('be.visible')
       .click();
     cy.get('.cart-icon > .hidden')
