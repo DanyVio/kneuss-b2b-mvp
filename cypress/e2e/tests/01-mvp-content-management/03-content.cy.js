@@ -23,9 +23,6 @@ describe('Content page', function () {
     cy.get('.owl-prev > .fas')
       .should('be.visible')
       .click();
-    cy.get('.image-description')
-      .should('be.visible')
-      .click({ multiple: true }); 
     cy.get('.store-logo')
       .should('be.visible')
       .click();

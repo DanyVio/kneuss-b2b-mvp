@@ -67,13 +67,13 @@ describe('Shipping step', function () {
       .should('be.visible')
       .click();
     cy.get('#prefix')
-      .select('Herr');
+      .select('Frau');
     cy.get('#lastname')
-      .type('test');
+      .type('testdany');
     cy.get('#firstname')
       .type('testdany');
     cy.get('#company')
-      .type('arcmedia testing');
+      .type('arcmedia tester');
     cy.get('#telephone')
       .type('68768676897');
     cy.get('#street_1')

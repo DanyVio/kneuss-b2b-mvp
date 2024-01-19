@@ -73,7 +73,7 @@ describe('Wishlist', function () {
     cy.get('#add-to-wishlist')
       .should('be.visible')
       .click();
-    cy.get('.btn-remove')
+    cy.get('#item_48 > .product-item-info > .product-item-inner > .product-item-actions.mt-2 > .btn-remove')
       .should('be.visible')
       .click();
     cy.get('.message')
