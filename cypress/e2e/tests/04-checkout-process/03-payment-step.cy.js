@@ -71,6 +71,12 @@ describe('Payment step', function () {
     cy.get('#checkout-link-button')
       .should('be.visible')
       .click();
+    cy.get('#shipping-method-flatrate')
+      .should('be.visible')
+      .click();
+    cy.get('#payment-method-checkmo')
+      .should('be.visible')
+      .click();
     cy.get('.nav-main > .flex > .btn')
       .should('be.visible')
       .click();

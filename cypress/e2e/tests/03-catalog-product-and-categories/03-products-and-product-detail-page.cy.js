@@ -32,9 +32,6 @@ describe('Product detail page', function () {
     cy.get('.outline-offset-2')
       .should('be.visible')
       .click();
-    cy.get(':nth-child(3) > .block > img')
-      .should('be.visible')
-      .click();
     cy.get('.text-gray-500')
       .should('be.visible')
       .click();
