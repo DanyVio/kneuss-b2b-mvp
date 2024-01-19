@@ -16,13 +16,6 @@ describe('Content page', function () {
 
   it('components home page', function () {
     cy.visit(`${config.baseUrl}`);
-
-    cy.get('.owl-next > .fas')
-      .should('be.visible')
-      .click();
-    cy.get('.owl-prev > .fas')
-      .should('be.visible')
-      .click();
     cy.get('.store-logo')
       .should('be.visible')
       .click();
@@ -35,6 +28,17 @@ describe('Content page', function () {
       .click();
     cy.scrollTo('bottom');
     cy.get('.mgz-element-inner > p > a')
+      .should('be.visible');
+    cy.get('.store-logo')
+      .should('be.visible')
+      .click();
+    cy.get('.store-logo')
+      .should('be.visible')
+      .click();
+    cy.get('.owl-next > .fas')
+      .should('be.visible')
+      .click();
+    cy.get('.owl-prev > .fas')
       .should('be.visible')
       .click();
   });

@@ -69,7 +69,7 @@ describe('Shipping step', function () {
     cy.get('#prefix')
       .select('Frau');
     cy.get('#lastname')
-      .type('test');
+      .type('testing');
     cy.get('#firstname')
       .type('testdany');
     cy.get('#company')
@@ -77,7 +77,7 @@ describe('Shipping step', function () {
     cy.get('#telephone')
       .type('68768676897');
     cy.get('#street_1')
-      .type('test');
+      .type('testing');
     cy.get('#zip')
       .type('6003');
     cy.get('#city')

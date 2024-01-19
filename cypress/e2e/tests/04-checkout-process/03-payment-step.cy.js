@@ -48,6 +48,9 @@ describe('Payment step', function () {
       .click()
       .click()
       .click();
+    cy.get('#product-addtocart-button')
+      .should('be.visible')
+      .click();
     cy.get('.cart-icon > .hidden')
       .should('be.visible')
       .click();
