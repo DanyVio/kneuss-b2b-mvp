@@ -27,7 +27,7 @@ describe('Content page', function () {
       .should('be.visible')
       .click();
     cy.scrollTo('center');
-    cy.get('.item > [href="https://test-b2b-kneuss.arcmedia.ch/minutenschnitzel-natur.html"]')
+    cy.get('[aria-label="Item 1"] > .item > .product')
       .should('be.visible')
       .click();
     cy.get('.store-logo')

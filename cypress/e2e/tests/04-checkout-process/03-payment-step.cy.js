@@ -26,8 +26,27 @@ describe('Payment step', function () {
     cy.get(':nth-child(1) > .level-0 > span')
       .should('be.visible')
       .click();
-    cy.get(':nth-child(2) > .item > .product-info > .btn-container > .btn')
+      cy.get(':nth-child(1) > .item > .product')
       .should('be.visible')
+      .click();
+    cy.get('.plus')
+      .should('be.visible')
+      .click()
+      .click()
+      .click()
+      .click()
+      .click()
+      .click()
+      .click()
+      .click()
+      .click()
+      .click()
+      .click()
+      .click()
+      .click()
+      .click()
+      .click()
+      .click()
       .click();
     cy.get('.cart-icon > .hidden')
       .should('be.visible')
@@ -50,13 +69,6 @@ describe('Payment step', function () {
       .should('be.visible')
       .click();
     cy.get('#checkout-link-button')
-      .should('be.visible')
-      .click();
-    cy.scrollTo('bottom');
-    cy.get('#shipping-method-flatrate')
-      .should('be.visible')
-      .click();
-    cy.get('#payment-method-checkmo')
       .should('be.visible')
       .click();
     cy.get('.nav-main > .flex > .btn')
