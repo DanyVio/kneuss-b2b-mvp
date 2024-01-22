@@ -6,16 +6,20 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 
 describe('set minimum order amount', function () {
 
-  beforeEach('before each test', function () {
-    cy.visit(`${config.baseUrl}`);
-    cy.get('.ambar-btn-accept')
-      .should('be.visible')
-      .click();
-    cy.wait(3000);
-  });
-
   it('set minimum order amount', function () {
     cy.visit(`${config.baseUrl}`);
+    cy.get('.ambar-btn-settings')
+      .should('be.visible')
+      .click();
+    cy.get('.flex-col > :nth-child(2) > .btn')
+      .should('be.visible')
+      .click();
+    cy.get('button.absolute')
+      .should('be.visible')
+      .click({ force: true });
+    cy.get(':nth-child(4) > .ambar-action-btn')
+      .should('be.visible')
+      .click();
   });
 });
 
