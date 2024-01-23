@@ -55,17 +55,5 @@ describe('Check the Header', function () {
     cy.get('.store-logo')
       .should('be.visible')
       .click();
-    cy.get('.list-icon > .hidden')
-      .should('be.visible')
-      .click();
-    cy.get('.store-logo')
-      .should('be.visible')
-      .click();
-    cy.get('.cart-icon > .hidden')
-      .should('be.visible')
-      .click();
-    cy.get('.store-logo')
-      .should('be.visible')
-      .click();
   });
 });

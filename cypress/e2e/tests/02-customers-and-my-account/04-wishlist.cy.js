@@ -103,11 +103,11 @@ describe('Wishlist', function () {
       .should('be.visible');
     cy.get('.product-item-actions > .actions-primary > .action')
       .should('be.visible')
-      .click();
+      .click({ multiple: true });
     cy.get('.cart-icon > .hidden')
       .should('be.visible')
       .click();
-    cy.get(':nth-child(3) > :nth-child(2) > .underline')
+    cy.get('.flex-col > .btn-secondary')
       .should('be.visible')
       .click();
   });
