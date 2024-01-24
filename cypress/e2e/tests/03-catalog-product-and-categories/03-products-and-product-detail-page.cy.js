@@ -69,5 +69,8 @@ describe('Product detail page', function () {
     cy.get('.product-data > .action')
       .should('be.visible')
       .click();
+    cy.get('#customer-login-form > .fieldset > .actions-toolbar > .btn')
+      .should('be.visible')
+      .click();
   });
 });
