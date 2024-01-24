@@ -17,9 +17,9 @@ describe('shop registration', function () {
   it('Create a customer', function () {
     cy.visit(`${config.baseUrl}/customer/account/create/`);
     
-    cy.get('#firstname')
+    cy.get('#firstname').clear()
       .type('testtest');
-    cy.get('#lastname')
+    cy.get('#lastname').clear()
       .type('testdany');
     cy.get('#is_subscribed')
       .should('be.visible')
@@ -27,11 +27,11 @@ describe('shop registration', function () {
     cy.get('#assistance_allowed_checkbox')
       .should('be.visible')
       .click();
-    cy.get('#email_address')
+    cy.get('#email_address').clear()
       .type('testdany@test.com');
-    cy.get('#password')
+    cy.get('#password').clear()
       .type('Test1234');
-    cy.get('#password-confirmation')
+    cy.get('#password-confirmation').clear()
       .type('Test1234');
     cy.get('div.primary > .action > span')
       .should('be.visible')
