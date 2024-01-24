@@ -56,9 +56,9 @@ describe('Shipping step', function () {
 
   it('able to add a new shipping address', function () {
     cy.visit(`${config.baseUrl}customer/account/login/`);
-    cy.get('#email')
+    cy.get('#email').clear()
       .type('test@test.com');
-    cy.get('#pass')
+    cy.get('#pass').clear()
       .type('Test1234');
     cy.get('.fieldset > .actions-toolbar > .btn > span')
       .should('be.visible')
@@ -68,19 +68,19 @@ describe('Shipping step', function () {
       .click();
     cy.get('#prefix')
       .select('Frau');
-    cy.get('#lastname')
+    cy.get('#lastname').clear()
       .type('testing');
-    cy.get('#firstname')
+    cy.get('#firstname').clear()
       .type('testdany');
-    cy.get('#company')
+    cy.get('#company').clear()
       .type('testingdany');
-    cy.get('#telephone')
+    cy.get('#telephone').clear()
       .type('68768676897');
-    cy.get('#street_1')
+    cy.get('#street_1').clear()
       .type('testing');
-    cy.get('#zip')
+    cy.get('#zip').clear()
       .type('6003');
-    cy.get('#city')
+    cy.get('#city').clear()
       .type('Lucerne');
     cy.get('#country')
       .select('Schweiz');
