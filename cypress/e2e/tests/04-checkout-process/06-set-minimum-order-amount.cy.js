@@ -32,7 +32,7 @@ describe('set minimum order amount', function () {
     cy.get('.cart-icon > .hidden')
       .should('be.visible')
       .click();
-    cy.get(':nth-child(3) > :nth-child(2) > .underline')
+    cy.get('.flex-col > .btn-secondary')
       .should('be.visible')
       .click();
     cy.get(':nth-child(1) > .level-0 > span')
