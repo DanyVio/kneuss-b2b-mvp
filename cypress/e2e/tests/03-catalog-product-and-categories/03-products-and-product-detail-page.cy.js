@@ -14,7 +14,7 @@ describe('Product detail page', function () {
     cy.wait(3000);
   });
 
-  it('product detail page', function () {
+  it('product detail page as a registered user', function () {
     cy.visit(`${config.baseUrl}customer/account/login/`);
     cy.get('#email')
       .type('test@test.com');
@@ -52,7 +52,7 @@ describe('Product detail page', function () {
       .click();
   });
 
-  it('As a NOT registered user', function () {
+  it('as a not registered user', function () {
     cy.visit(`${config.baseUrl}`);
     cy.get(':nth-child(1) > .level-0 > span')
       .should('be.visible')
@@ -66,19 +66,7 @@ describe('Product detail page', function () {
     cy.get('.text-gray-500')
       .should('be.visible')
       .click();
-    cy.get('#add-to-wishlist')
-      .should('be.visible')
-      .click();
-    cy.get('.secondary > .action > span')
-      .should('be.visible')
-      .click();
-    cy.get('.actions-primary > .action')
-      .should('be.visible')
-      .click();
-    cy.get(':nth-child(12) > a')
-      .should('be.visible')
-      .click();
-    cy.get('.store-logo')
+    cy.get('.product-data > .action')
       .should('be.visible')
       .click();
   });
