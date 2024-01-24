@@ -32,21 +32,7 @@ describe('Shipping step', function () {
     cy.get('.cart-icon > .hidden')
       .should('be.visible')
       .click();
-    cy.get(':nth-child(3) > :nth-child(2) > .underline')
-      .should('be.visible')
-      .click();
-    cy.get('#shipping-estimate-toggle')
-      .should('be.visible')
-      .click();
-    cy.get('[name="shippingAddress.country_id"] > .label > .form-select')
-      .should('be.visible')
-      .select('Schweiz');
-    cy.get('#region_id')
-      .should('be.visible')
-      .select('Lucerne');
-    cy.get('.label > .form-input')
-      .type('6003');
-    cy.get('#shipping_method_flatrate')
+    cy.get('.flex-col > .btn-secondary')
       .should('be.visible')
       .click();
     cy.get('#checkout-link-button')
@@ -66,8 +52,6 @@ describe('Shipping step', function () {
     cy.get('.block-content > .flex-wrap > :nth-child(1) > .flex > .grow > .mt-3 > span')
       .should('be.visible')
       .click();
-    cy.get('#prefix')
-      .select('Frau');
     cy.get('#lastname').clear()
       .type('testing');
     cy.get('#firstname').clear()
