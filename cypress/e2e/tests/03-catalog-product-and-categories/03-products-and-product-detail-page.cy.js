@@ -51,4 +51,35 @@ describe('Product detail page', function () {
       .should('be.visible')
       .click();
   });
+
+  it('As a NOT registered user', function () {
+    cy.visit(`${config.baseUrl}`);
+    cy.get(':nth-child(1) > .level-0 > span')
+      .should('be.visible')
+      .click();
+    cy.get(':nth-child(2) > .item > .product')
+      .should('be.visible')
+      .click();
+    cy.get('.outline-offset-2')
+      .should('be.visible')
+      .click();
+    cy.get('.text-gray-500')
+      .should('be.visible')
+      .click();
+    cy.get('#add-to-wishlist')
+      .should('be.visible')
+      .click();
+    cy.get('.secondary > .action > span')
+      .should('be.visible')
+      .click();
+    cy.get('.actions-primary > .action')
+      .should('be.visible')
+      .click();
+    cy.get(':nth-child(12) > a')
+      .should('be.visible')
+      .click();
+    cy.get('.store-logo')
+      .should('be.visible')
+      .click();
+  });
 });
