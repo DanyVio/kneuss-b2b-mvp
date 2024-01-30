@@ -51,19 +51,10 @@ describe('Customer login', function () {
     cy.get('.items > :nth-child(6) > a')
       .should('be.visible')
       .click();
-    cy.get('.items > :nth-child(7) > a')
-      .should('be.visible')
-      .click();
-    cy.get(':nth-child(8) > a')
-      .should('be.visible')
-      .click();
-    cy.get(':nth-child(9) > a')
-      .should('be.visible')
-      .click();
     cy.get('.current > strong')
       .should('be.visible')
       .click();
-    cy.get(':nth-child(12) > a')
+    cy.get(':nth-child(8) > a')
       .should('be.visible')
       .click();
   });
