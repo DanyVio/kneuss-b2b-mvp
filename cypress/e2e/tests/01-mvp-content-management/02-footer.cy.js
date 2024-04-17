@@ -17,27 +17,27 @@ describe('Check the Footer', function () {
   it('footer', function () {
     cy.visit(`${config.baseUrl}`);
     cy.scrollTo('bottom');
-    cy.get('.nav.item > [href="https://test-b2b-kneuss.arcmedia.ch/produkte.html"]')
+    cy.get('.nav.item').children().contains('Alle Produkte')
       .should('be.visible')
       .click();
     cy.scrollTo('bottom');
-    cy.get('.nav.item > [href="https://test-b2b-kneuss.arcmedia.ch/guggeli.html"]')
+    cy.get('.nav.item').children().contains('Güggeli / Poulet')
       .should('be.visible')
       .click();
     cy.scrollTo('bottom');
-    cy.get('.nav.item > [href="https://test-b2b-kneuss.arcmedia.ch/schnitzel.html"]')
+    cy.get('.nav.item').children().contains('Schnitzel / Brust')
       .should('be.visible')
       .click();
-    cy.get('.nav.item > [href="https://test-b2b-kneuss.arcmedia.ch/schenkel.html"]')
+    cy.get('.nav.item').children().contains('Schenkel')
       .should('be.visible')
       .click();
-    cy.get('.nav.item > [href="https://test-b2b-kneuss.arcmedia.ch/flugeli.html"]')
+    cy.get('.nav.item').children().contains('Flügeli')
       .should('be.visible')
       .click();
-    cy.get('.nav.item > [href="https://test-b2b-kneuss.arcmedia.ch/poulet.html"]')
+    cy.get('.nav.item').children().contains('Spiessli')
       .should('be.visible')
       .click();
-    cy.get('.nav.item > [href="https://test-b2b-kneuss.arcmedia.ch/spezial-kuchen.html"]')
+    cy.get('.nav.item').children().contains('Spezialitäten')
       .should('be.visible')
       .click();
     cy.get('.text-primary-lighter > a')
